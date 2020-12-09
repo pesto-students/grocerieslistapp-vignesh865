@@ -10,5 +10,10 @@ https://grocery-app-pesto.netlify.app/grocery.html
 
 ### Glimpse of the app ###
 
-https://github.com/pesto-students/grocerieslistapp-vignesh865/blob/master/grocery%20app%20part%201.gif
-https://github.com/pesto-students/grocerieslistapp-vignesh865/blob/master/grocery%20app%20part%202.gif
+#### Part 1 ####
+
+![alt text](https://github.com/pesto-students/grocerieslistapp-vignesh865/blob/master/grocery%20app%20part%201.gif)
+
+#### Part 2 ####
+
+![alt text](https://github.com/pesto-students/grocerieslistapp-vignesh865/blob/master/grocery%20app%20part%202.gif)
