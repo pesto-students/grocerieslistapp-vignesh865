@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Grocery List</title>
+
+        <script src="main/js/utilities/utilities.js"></script>
+        <script src="main/js/utilities/htmlElementUtility.js"></script>
+
+        <script src="main/js/models/grocery.js"></script>
+        <script src="main/js/models/credential.js"></script>
+
+        <script src="main/js/db/localStorageDataSourceImpl.js"></script>
+        <script src="main/js/db/dataSourceFactory.js"></script>
+
+        <script src="main/js/dao/groceryDao.js"></script>
+        <script src="main/js/dao/authDao.js"></script>
+
+        <script src="main/js/service/appService.js"></script>
+
+        <script src="main/js/events/tableEvents.js"></script>
+        <script src="main/js/events/formEvents.js"></script>
+
+        <script src="test/test.js"></script>
+
+        <link rel="stylesheet" href="main/css/app.css" />
+    </head>
+
+    <body>
+        <div class="bg">
+            <div class="workspace">
+                <div id="login-container" class="container">
+                  <h1 class="row">Grocery List</h1>
+                    <form
+                        id="login-form"
+                        onsubmit="onSubmitLoginForm(this,event)"
+                        method="post"
+                    >
+                        <div class="row">
+                            <label class="col-25 form-label">Username</label>
+                            <input
+                                class="col-75 form-input"
+                                type="text"
+                                id="username"
+                                name="username"
+                                required
+                                onchange="validateUser()"
+                            />
+                        </div>
+                        <div class="row">
+                            <label class="col-25 form-label">Password</label>
+                            <input
+                                class="col-75 form-input"
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                            />
+                        </div>
+                        <div class="row hide">
+                            <label class="col-25 form-label"
+                                >Confirm Password</label
+                            >
+                            <input
+                                class="col-75 form-input"
+                                type="password"
+                                id="confirm-password"
+                                name="confirm-password"
+                            />
+                        </div>
+                        <br />
+                        <div class="row">
+                            <input
+                                id="action-button"
+                                type="submit"
+                                class="btn btn-primary"
+                                value="Login"
+                            />
+                        </div>
+                        <br />
+                        <div id="login-form-alert" class="alert hide">
+                            <span
+                                class="closebtn"
+                                onclick="onCloseAlert(this.parentElement)"
+                                >&times;</span
+                            >
+                            <span class="alert-text"></span>
+                        </div>
+                    </form>
+                </div>
+                <div id="main-container" class="container hide">
+                  <h1 class="row">Dashboard</h1>
+                    <form
+                        id="grocery-form"
+                        onsubmit="onSubmitGroceryForm(this, event)"
+                        method="post"
+                    >
+                        <div class="row">
+                            <input
+                                class="form-input col-50 m-s-4"
+                                id="item-name"
+                                name="item-name"
+                                type="text"
+                                autocomplete="off"
+                                placeholder="Enter item name"
+                                required
+                            />
+                            <input
+                                class="form-input col-25 m-s-4"
+                                id="quantity"
+                                name="quantity"
+                                type="number"
+                                min="0"
+                                step="1"
+                                placeholder="Enter quantity"
+                                required
+                            />
+                            <input
+                                type="submit"
+                                class="btn btn-primary btn-inline"
+                                value="Add"
+                            />
+                        </div>
+                        <br />
+                        <div id="grocery-form-alert" class="alert hide">
+                            <span
+                                class="closebtn"
+                                onclick="onCloseAlert(this.parentElement)"
+                                >&times;</span
+                            >
+                            <span class="alert-text"></span>
+                        </div>
+                    </form>
+                    <br />
+                    <input
+                        type="text"
+                        id="search-input"
+                        class="form-input col-100 search"
+                        onkeyup="searchTable()"
+                        placeholder="Search for grocery"
+                    />
+                    <table id="grocery-table" class="table">
+                        <tbody>
+                            <tr class="header-row">
+                                <th>Item name</th>
+                                <th>Quantity</th>
+                            </tr>
+                            <tr>
+                                <td class="no-data-tr" colspan="2">
+                                    No groceries present
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <input
+                            id="delete-grocery-button"
+                            type="button"
+                            class="btn btn-primary delete-button"
+                            value="Delete"
+                            onclick="onDeleteTableRow()"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
