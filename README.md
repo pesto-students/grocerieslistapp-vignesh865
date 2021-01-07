@@ -2,7 +2,7 @@
 
 ### Data flow ###
 
-![alt text](https://github.com/vignesh865/PestoRepo/blob/main/Grocery%20app%20data%20flow.jpg?raw=true)
+![alt text](https://github.com/vignesh865/grocerieslistapp-vignesh865/blob/master/Grocery%20app%20data%20flow.jpg?raw=true)
 
 ### Hosted at ###
 
